@@ -4,6 +4,11 @@ PROJECT(ZLIB)
 
 SET(ZLIB_MANGLE_PREFIX "" CACHE STRING "Mangle prefix. For example 'cm_zlib_', 'z_', ...")
 
+if(WIN32)
+  # See http://www.zlib.net/DLL_FAQ.txt
+  OPTION(ZLIB_WINAPI FALSE "Build the library with WINAPI (STDCALL) function calling convention")
+endif()
+
 SET(ZLIB_VERSION_MAJOR "1")
 SET(ZLIB_VERSION_MINOR "2")
 SET(ZLIB_VERSION_PATCH "3")

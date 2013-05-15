@@ -27,6 +27,7 @@ cm_zlib_mangle.h
 zlibDllConfig.h.in
   -Configures the correct value of the ZLIB_DLL define based on the
    BUILD_SHARED_LIBS CMake option.
+  -Configures ZLIB_WINAPI
 
 Changed Files
 -------------

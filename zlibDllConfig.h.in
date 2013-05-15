@@ -3,4 +3,8 @@
 
 #cmakedefine ZLIB_DLL
 
+#ifndef ZLIB_WINAPI
+#cmakedefine ZLIB_WINAPI
+#endif
+
 #endif
