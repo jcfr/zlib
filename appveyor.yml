@@ -1,0 +1,38 @@
+version: 0.0.{build}
+os:
+  - Visual Studio 2013
+clone_depth: 1
+branches:
+  only:
+    - dcmqi
+skip_tags: true
+clone_folder: c:\zlib
+install:
+  - cinst cmake
+configuration:
+  - Release
+platform:
+  - x64
+before_build:
+  - cmd: cmake --version
+  - cmd: mkdir c:\zlib-install
+  - cmd: cd c:\zlib
+  - cmd: cmake -G "Visual Studio 12 2013 Win64" -DCMAKE_BUILD_TYPE:STRING=Release -DZLIB_MANGLE_PREFIX:STRING=dcmqi_zlib_ -DCMAKE_INSTALL_PREFIX:PATH=c:\zlib-install
+  - cmd: dir
+build_script:
+  - cmd: type zlib.sln
+  - cmd: msbuild zlib.sln /m
+cache:
+  - C:\ProgramData\chocolatey\bin
+  - C:\ProgramData\chocolatey\lib
+artifacts:
+  - path: ..\zlib-install
+    name: zlib-dcmqi
+    type: zip
+deploy:
+    release: zlib-dcmqi-v$(appveyor_build_version)
+    provider: GitHub
+    description: 'zlib packaged by appveyor for dcmqi'
+    artifact: zlib-dcmqi
+    auth_token:
+      secure: ffHRHxe8buygkDl6kRw4vaNaH/ikYGoDn3TXfZ42cFXq7986houCT7/7qB8o5Vvf
