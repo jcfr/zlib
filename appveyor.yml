@@ -15,9 +15,9 @@ platform:
   - x64
 before_build:
   - cmd: cmake --version
-  - cmd: mkdir c:\zlib-install
-  - cmd: mkdir c:\zlib-build
-  - cmd: cd c:\zlib-build
+  - cmd: mkdir c:\zlib\zlib-install
+  - cmd: mkdir c:\zlib\zlib-build
+  - cmd: cd c:\zlib\zlib-build
   - cmd: cmake -G "Visual Studio 12 2013 Win64" -DCMAKE_BUILD_TYPE:STRING=Release -DZLIB_MANGLE_PREFIX:STRING=dcmqi_zlib_ -DCMAKE_INSTALL_PREFIX:PATH=c:\zlib-install c:\zlib
   - cmd: dir
 build_script:
@@ -27,7 +27,7 @@ cache:
   - C:\ProgramData\chocolatey\bin
   - C:\ProgramData\chocolatey\lib
 artifacts:
-  - path: ..\zlib-build
+  - path: zlib-build
     name: zlib-dcmqi
     type: zip
 deploy:
