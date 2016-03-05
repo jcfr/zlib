@@ -33,7 +33,7 @@ artifacts:
     name: zlib-dcmqi
     type: zip
 deploy:
-    release: zlib-dcmqi-v$(appveyor_build_version)-VS12-Win64-Release
+    release: zlib-dcmqi-1.2.3-VS12-Win64-Release
     provider: GitHub
     description: 'zlib packaged by appveyor for dcmqi'
     artifact: zlib-dcmqi
