@@ -9,6 +9,7 @@ skip_tags: true
 clone_folder: c:\zlib
 install:
   - cinst cmake
+  - cinst make
 configuration:
   - Release
 platform:
