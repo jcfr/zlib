@@ -19,12 +19,12 @@ before_build:
   - cmd: mkdir c:\zlib\zlib-install
   - cmd: mkdir c:\zlib\zlib-build
   - cmd: cd c:\zlib\zlib-build
-  - cmd: cmake -G "Visual Studio 12 2013 Win64" -DCMAKE_BUILD_TYPE:STRING=Release -DZLIB_MANGLE_PREFIX:STRING=dcmqi_zlib_ -DCMAKE_INSTALL_PREFIX:PATH=c:\zlib-install c:\zlib
+  - cmd: cmake -G "Visual Studio 12 2013 Win64" -DCMAKE_BUILD_TYPE:STRING=Release -DZLIB_MANGLE_PREFIX:STRING=dcmqi_zlib_ -DCMAKE_INSTALL_PREFIX:PATH=c:\zlib-install -G "NMake Makefiles" c:\zlib
   - cmd: dir
 after_build:
   - cmd: dir c:\zlib\zlib-install
   - cmd: cd c:\zlib\zlib-build
-  - cmd: make install
+  - cmd: nmake install
 build_script:
   - cmd: type zlib.sln
   - cmd: msbuild zlib.sln /m
