@@ -23,6 +23,7 @@ before_build:
   - cmd: dir
 after_build:
   - cmd: dir c:\zlib\zlib-install
+  - cmd: cd c:\zlib\zlib-build
   - cmd: make install
 build_script:
   - cmd: type zlib.sln
