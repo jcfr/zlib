@@ -26,7 +26,7 @@ after_build:
   - cmd: cd c:\zlib\zlib-build
 build_script:
   - cmd: type zlib.sln
-  - cmd: msbuild zlib.sln /m
+  - cmd: msbuild zlib.sln /m /target:INSTALL
 cache:
   - C:\ProgramData\chocolatey\bin
   - C:\ProgramData\chocolatey\lib
